@@ -13,6 +13,7 @@ header {
   margin-top: 30px;
   margin-bottom: 20px;
   box-shadow: 1px 5px 5px 1px #47505354;
+  padding: 0px 20px 0px 20px;
 }
 
 .weatherForm {
@@ -54,9 +55,10 @@ header {
   max-width: 450px;
   display: block;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 20px 20px 0px 20px;
   border-radius: 15px;
   box-shadow: 1px 5px 5px 1px #47505354;
+  padding-right: 20px;
 }
 .city {
   font-size: 40px;
@@ -67,39 +69,45 @@ header {
 .weatherDetails {
   display: flex;
   justify-content: space-between;
-  margin: -20px 10px 0px 20px;
+  margin: -20px 10px 10px 20px;
 }
 .weatherDetails-city {
   margin-top: 30px;
 }
-div#description {
+.weatherdescription {
+  display: flex;
+  justify-content: space-between;
   text-transform: uppercase;
   font-size: 15px;
   font-weight: bold;
   color: rgba(39, 33, 66, 0.6);
   font-family: "Exo 2", sans-serif;
-  text-align: end;
-  margin: -60px 60px 20px 0px;
-  padding: 10px;
+  padding: 0px 20px 20px 20px;
+  margin-top: -30px;
+}
+div#description {
+  margin-left: 30px;
+}
+.weathertempRange {
+  margin-right: 10px;
+}
+.weatherTempcelsius {
+  display: flex;
 }
 div#temp-degrees {
-  position: relative;
   font-size: 70px;
   font-weight: bold;
   color: black;
-  margin: 40px 60px -20px 0px;
+  margin: 50px 10px 0px 0px;
 }
-span#temp-celsius {
-  position: absolute;
+div#temp-celsius {
   font-size: 20px;
   font-weight: bold;
   color: black;
-  margin: -50px 0px 0px 80px;
+  margin: 60px 40px 0px 0px;
 }
 
 .weatherDetails-emoji {
-  position: relative;
-  margin-left: 10px;
   margin-top: -10px;
   padding: 2px;
   width: 150px;
