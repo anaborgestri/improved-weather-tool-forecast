@@ -1,6 +1,7 @@
 body {
   background-image: url("images/sky.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: "Exo 2", sans-serif;
 }
 header {
@@ -66,14 +67,43 @@ header {
 .weatherDetails {
   display: flex;
   justify-content: space-between;
-  margin: -20px 30px 0px 20px;
+  margin: -20px 10px 0px 20px;
+}
+.weatherDetails-city {
+  margin-top: 30px;
+}
+div#description {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(39, 33, 66, 0.6);
+  font-family: "Exo 2", sans-serif;
+  text-align: end;
+  margin: -60px 60px 20px 0px;
+  padding: 10px;
+}
+div#temp-degrees {
+  position: relative;
+  font-size: 70px;
+  font-weight: bold;
+  color: black;
+  margin: 40px 60px -20px 0px;
+}
+span#temp-celsius {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin: -50px 0px 0px 80px;
 }
 
 .weatherDetails-emoji {
-  position: absolute;
-  font-size: 85px;
-  margin: 18px 0px 0px 5px;
-  padding: 10px 0px 0px 5px;
+  position: relative;
+  margin-left: 10px;
+  margin-top: -10px;
+  padding: 2px;
+  width: 150px;
+  height: 150px;
 }
 .weatherDetails-description {
   position: absolute;
@@ -81,23 +111,7 @@ header {
   color: rgba(39, 33, 66, 0.6);
   margin-left: 35px;
 }
-.weatherDetails-temp {
-  margin-top: 25px;
-  font-size: 15px;
-  font-weight: bold;
-  color: rgba(39, 33, 66, 0.6);
-}
-.weatherDetails-degrees {
-  font-size: 70px;
-  font-weight: bold;
-  color: black;
-}
-.weatherDetails-celsius {
-  position: absolute;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-}
+
 .weatherDetails-minmax {
   position: relative;
   font-weight: lighter;
@@ -114,9 +128,7 @@ img {
   width: 50px;
   padding: 10px;
 }
-ul {
-  padding: 30px 5px 30px 5px;
-}
+
 li {
   list-style: none;
   text-align: center;
@@ -125,15 +137,6 @@ img.forecastemoji {
   width: 25px;
 }
 
-ul.weatherDetailsExtra {
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  font-size: 13px;
-  font-weight: bold;
-  color: rgba(39, 33, 66, 0.6);
-  margin: 0px 30px 0px 30px;
-}
 .weatherDetails-value {
   font-size: 11px;
 }
@@ -202,8 +205,32 @@ div.forecastWeekly {
   color: rgba(39, 33, 66, 0.6);
   font-weight: bolder;
 }
+li {
+  list-style: none;
+  text-align: center;
+}
+img.forecastemoji {
+  width: 25px;
+}
+ul.forecastDays {
+  padding: 30px 5px 30px 5px;
+}
+ul.weatherDetailsExtra {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgba(39, 33, 66, 0.6);
+  margin: 0px 30px 0px 0px;
+}
 footer {
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
+  color: rgba(235, 231, 250, 0.6);
+  margin-top: 20px;
+}
+.links {
+  color: rgba(235, 231, 250, 0.697);
 }

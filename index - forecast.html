@@ -9,7 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style with forecast.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Your weather app</title>
   </head>
   <body>
@@ -32,52 +33,50 @@
       </form>
     </header>
     <div class="weatherApp-container">
-      <span class="city">Tomar</span>
+      <span class="city"></span>
       <br />
       <div class="weatherDetails">
         <div class="weatherDetails-city">
-          <span class="weatherDetails-emoji"> ☀️ </span> <br />
+          <span id="icon"></span>
         </div>
-        <div class="weatherDetails-temp">
-          <span>TEMPERATURE</span><br />
-          <span class="weatherDetails-degrees"
-            >12<span class="weatherDetails-celsius">°C</span></span
-          >
-          <br />
-          <span class="weatherDetails-minmax">Max.: 13° Min.: 12°</span>
+        <div class="weatherTempcelsius">
+          <div class="weatherDetails-degrees" id="temp-degrees"></div>
+          <span class="weatherDetails-celsius" id="temp-celsius">°C</span>
         </div>
       </div>
+      <div id="description"></div>
       <ul class="weatherDetailsExtra">
         <li>
           <div class="wind-emoji">
             <img src="images\storm.png" />
           </div>
           <span class="weatherDetailsExtra">WIND</span>
-          <div class="weatherDetails-value">Weak S/E <br />2km/h</div>
-        </li>
-        <li>
-          <div class="precipitation-emoji">
-            <img src="images\protection.png" />
+          <div class="weatherDetails-value">
+            <span id="windspeed"></span> km/h
           </div>
-          <span class="weatherDetailsExtra">PRECIPITATION</span>
-          <div class="weatherDetails-value">0%</div>
         </li>
         <li>
-          <div class="forecastemoji">
+          <div class="humidity-emoji">
             <img src="images\humidity (1).png" />
           </div>
           <span class="weatherDetailsExtra">HUMIDITY</span>
-          <div class="weatherDetails-value">65%</div>
+          <div class="weatherDetails-value"><span id="humidity"></span> %</div>
+        </li>
+        <li>
+          <div class="realFeel-emoji">
+            <img src="images\thermal.png" />
+          </div>
+          <span class="weatherDetailsExtra">REAL FEEL</span>
+          <div class="weatherDetails-value"><span id="realFeel"></span> °</div>
         </li>
       </ul>
-      <div class="weatherUpdate-date">Updated| 7 January 2024 | 14:59</div>
-      <div class="forecastDaily"></div>
+      <div class="weatherUpdate-date" id="time"></div>
     </div>
     <div class="forecastWeekly">
-      <ul>
+      <ul class="forecastDays">
         <li class="forecastDays">
           <span class="days">Sun</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -89,26 +88,24 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
-
             <li class="humidity">
               <div class="forecastemoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
+            </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
             </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Mon</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -120,26 +117,24 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
-
             <li class="humidity">
               <div class="forecastemoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
+            </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
             </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Tue</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -151,26 +146,24 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
-
             <li class="humidity">
               <div class="humidity-emoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
             </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
+            </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Wed</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -182,26 +175,24 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
-
             <li class="humidity">
               <div class="forecastemoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
+            </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
             </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Thu</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -213,26 +204,24 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
+            <li class="humidity">
+              <div class="forecastemoji">
+                <img src="images\humidity (1).png" class="forecastemoji" />
+              </div>
+              <div class="humidity-value">65<br />%</div>
+            </li>
             <li class="precipitation">
               <div class="precipitation-emoji">
                 <img src="images\protection.png" class="forecastemoji" />
               </div>
               <div class="precipitation-value">0<br />%</div>
             </li>
-
-            <li class="humidity">
-              <div class="forecastemoji">
-                <img src="images\humidity (1).png" class="forecastemoji" />
-              </div>
-              <div class="humidity-value">65<br />%</div>
-            </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Fri</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -245,25 +234,24 @@
               <div class="wind-value">2<br />km/h</div>
             </li>
 
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
-
             <li class="humidity">
               <div class="forecastemoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
             </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
+            </li>
           </ul>
         </li>
 
         <li class="forecastDays">
           <span class="days">Sat</span>
-          <ul>
+          <ul class="forecastDays">
             <li class="temperature-emoji">🌤️</li>
             <li>
               <span class="temperature-forecast-max">12</span>
@@ -275,26 +263,35 @@
               </div>
               <div class="wind-value">2<br />km/h</div>
             </li>
-
-            <li class="precipitation">
-              <div class="forecastemoji">
-                <img src="images\protection.png" class="forecastemoji" />
-              </div>
-              <div class="precipitation-value">0<br />%</div>
-            </li>
             <li class="humidity">
               <div class="forecastemoji">
                 <img src="images\humidity (1).png" class="forecastemoji" />
               </div>
               <div class="humidity-value">65<br />%</div>
             </li>
+            <li class="precipitation">
+              <div class="forecastemoji">
+                <img src="images\protection.png" class="forecastemoji" />
+              </div>
+              <div class="precipitation-value">0<br />%</div>
+            </li>
           </ul>
         </li>
       </ul>
     </div>
     <footer>
-      Coded by <a href="">Ana Borges</a> and is open-source on
-      <a href="">GitHub</a> and hosted on <a href="">Netlify</a>
+      Coded by
+      <a href="https://github.com/anaborgestri" class="links">Ana Borges</a> and
+      is open-source on
+      <a href="https://github.com/anaborgestri/my-new-weather-app" class="links"
+        >GitHub</a
+      >
+      and hosted on
+      <a
+        href="https://app.netlify.com/teams/anaborgestri/overview"
+        class="links"
+        >Netlify</a
+      >
     </footer>
   </body>
   <script src="script.js"></script>
