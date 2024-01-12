@@ -1,0 +1,209 @@
+body {
+  background-image: url("images/sky.jpg");
+  background-size: cover;
+  font-family: "Exo 2", sans-serif;
+}
+header {
+  background-color: rgba(255, 255, 255, 0.5);
+  max-width: 450px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  box-shadow: 1px 5px 5px 1px #47505354;
+}
+
+.weatherForm {
+  display: inline-flex;
+  font-family: "Exo 2", sans-serif;
+}
+#form-search-city {
+  width: 75%;
+  position: relative;
+  font-size: 15px;
+  font-family: "Exo 2", sans-serif;
+  margin: 20px -2px 20px 10px;
+  background-color: #e4f1fe2d;
+  border: 2px solid #8dc6ff;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  border-right: none;
+  border-radius: 50px 0px 0px 50px;
+  font-weight: bolder;
+}
+#form-button {
+  position: relative;
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Exo 2", sans-serif;
+  margin: 20px 10px 20px -2px;
+  background-color: #8dc6ff69;
+  border: 2px solid #8dc6ff;
+  padding: 10px 10px 10px 19px;
+  box-sizing: border-box;
+  border-left: none;
+  border-radius: 0px 50px 50px 0px;
+  font-weight: bolder;
+}
+.weatherApp-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  max-width: 450px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-radius: 15px;
+  box-shadow: 1px 5px 5px 1px #47505354;
+}
+.city {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  margin: 40px;
+}
+.weatherDetails {
+  display: flex;
+  justify-content: space-between;
+  margin: -20px 30px 0px 20px;
+}
+
+.weatherDetails-emoji {
+  position: absolute;
+  font-size: 85px;
+  margin: 18px 0px 0px 5px;
+  padding: 10px 0px 0px 5px;
+}
+.weatherDetails-description {
+  position: absolute;
+  font-size: 15px;
+  color: rgba(39, 33, 66, 0.6);
+  margin-left: 35px;
+}
+.weatherDetails-temp {
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(39, 33, 66, 0.6);
+}
+.weatherDetails-degrees {
+  font-size: 70px;
+  font-weight: bold;
+  color: black;
+}
+.weatherDetails-celsius {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.weatherDetails-minmax {
+  position: relative;
+  font-weight: lighter;
+  color: rgba(39, 33, 66, 0.6);
+  text-align: right;
+}
+.weatherUpdate-date {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.6);
+  font-weight: bold;
+  padding: 20px;
+}
+img {
+  width: 50px;
+  padding: 10px;
+}
+ul {
+  padding: 30px 5px 30px 5px;
+}
+li {
+  list-style: none;
+  text-align: center;
+}
+img.forecastemoji {
+  width: 25px;
+}
+
+ul.weatherDetailsExtra {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgba(39, 33, 66, 0.6);
+  margin: 0px 30px 0px 30px;
+}
+.weatherDetails-value {
+  font-size: 11px;
+}
+li.wind {
+  padding: 20px 0px 20px 0px;
+}
+li.humidity {
+  padding: 20px 0px 20px 0px;
+}
+li.precipitation {
+  padding: 20px 0px 20px 0px;
+}
+li.forecastDays {
+  display: inline-block;
+  justify-content: space-between;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px 0px;
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: 0px;
+  font-size: 11px;
+  margin: 4px;
+  box-shadow: 1px 5px 5px 1px #47505354;
+}
+.days {
+  font-size: 15px;
+  font-weight: bold;
+}
+div.forecastWeekly {
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+  padding-left: 0px;
+}
+
+.temperature-emoji {
+  margin-bottom: 20px;
+}
+.temperature-forecast-max {
+  border-style: solid;
+  border-color: #22313f;
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
+  background-color: #22313f;
+  color: white;
+  padding: 2px;
+}
+.temperature-forecast-min {
+  border-style: solid;
+  border-color: #e4f1fe;
+  border-left: none;
+  border-radius: 0px 5px 5px 0px;
+  background-color: #e4f1fe;
+  padding: 2px;
+  margin-left: -2px;
+}
+.wind-value {
+  color: rgba(39, 33, 66, 0.6);
+  font-weight: bolder;
+}
+.humidity-value {
+  color: rgba(39, 33, 66, 0.6);
+  font-weight: bolder;
+}
+.precipitation-value {
+  color: rgba(39, 33, 66, 0.6);
+  font-weight: bolder;
+}
+footer {
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}

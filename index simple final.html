@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Your weather app</title>
+  </head>
+  <body>
+    <header>
+      <form id="search-form">
+        <input
+          type="search"
+          placeholder="Location"
+          class="weatherForm"
+          id="form-search-city"
+          required
+        />
+        <input
+          type="submit"
+          value="Search"
+          class="weatherForm"
+          id="form-button"
+          required
+        />
+      </form>
+    </header>
+    <div class="weatherApp-container">
+      <span class="city"></span>
+      <br />
+      <div class="weatherDetails">
+        <div class="weatherDetails-city">
+          <span id="icon"></span>
+        </div>
+        <div class="weatherDetails-temp">
+          <span class="weatherDetails-degrees" id="temp-degrees"></span>
+          <span class="weatherDetails-celsius">°C</span><br />
+          <span id="description"></span>
+        </div>
+      </div>
+      <ul class="weatherDetailsExtra">
+        <li>
+          <div class="wind-emoji">
+            <img src="images\storm.png" />
+          </div>
+          <span class="weatherDetailsExtra">WIND</span>
+          <div class="weatherDetails-value">
+            <span id="windspeed"></span> km/h
+          </div>
+        </li>
+        <li>
+          <div class="humidity-emoji">
+            <img src="images\humidity (1).png" />
+          </div>
+          <span class="weatherDetailsExtra">HUMIDITY</span>
+          <div class="weatherDetails-value"><span id="humidity"></span> %</div>
+        </li>
+        <li>
+          <div class="realFeel-emoji">
+            <img src="images\thermal.png" />
+          </div>
+          <span class="weatherDetailsExtra">REAL FEEL</span>
+          <div class="weatherDetails-value"><span id="realFeel"></span> °</div>
+        </li>
+      </ul>
+      <div class="weatherUpdate-date" id="time"></div>
+    </div>
+    <footer>
+      Coded by
+      <a href="https://github.com/anaborgestri" class="links">Ana Borges</a> and
+      is open-source on
+      <a href="https://github.com/anaborgestri/my-new-weather-app" class="links"
+        >GitHub</a
+      >
+      and hosted on
+      <a
+        href="https://app.netlify.com/teams/anaborgestri/overview"
+        class="links"
+        >Netlify</a
+      >
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>
