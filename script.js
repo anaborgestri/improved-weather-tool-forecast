@@ -75,16 +75,22 @@ function findCity(event) {
   giveWeather(input.value);
 }
 
-let searchCityform = document.querySelector("#search-form");
-searchCityform.addEventListener("submit", findCity);
-
-//by the functionality added below we do not need to have the city and weather details in the html. everytime that is refreashed it will just show the details from the city that is below in brackets
-giveWeather("Basel");
-
 //FORECAST JS
-let forecast = document.querySelector("#forecastDays");
-forecastDays.innerHTML = `<li class="forecastDays">
-  <span class="days">Sun</span>
+function displayForecast() {
+  let forecast = document.querySelector("#forecastDays");
+
+  //need to add a loop so this html text shows up 5 times, calling the funtion 5 times does not work on its own. Create a new array
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  //create a funtion to call it for each day of the created array
+  //if we would stop here only the last day of the array would be called so we need to concatonate a string a massive string. SO we need to create a new variable that will be empty for now
+  let forecastHtml = "";
+  //then we will need to say that we want this variable to be played / called again and again. For that we add forecastHtml = forescastHtml + `teh html text that we want to inject` - see below
+  // finally we need to create the final loop, we need to add in the end forecast.innerHTML = forecastHtml;
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<li class="forecastDays">
+  <span class="days">${day}</span>
   <ul class="forecastDays">
     <li class="temperature-emoji">🌤️</li>
     <li>
@@ -119,3 +125,14 @@ forecastDays.innerHTML = `<li class="forecastDays">
     </li>
   </ul>
 </li>`;
+  });
+  //finally we need to create the final loop
+  forecast.innerHTML = forecastHtml;
+}
+
+let searchCityform = document.querySelector("#search-form");
+searchCityform.addEventListener("submit", findCity);
+
+//by the functionality added below we do not need to have the city and weather details in the html. everytime that is refreashed it will just show the details from the city that is below in brackets
+giveWeather("Basel");
+displayForecast();
