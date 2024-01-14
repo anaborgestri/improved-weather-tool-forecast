@@ -123,7 +123,7 @@ function displayForecast(response) {
         <img src="images/storm.png" class="forecastemoji" />
       </div>
       <div class="wind-value">
-        2<br />
+        ${day.wind.speed}<br />
         km/h
       </div>
     </li>
@@ -132,16 +132,8 @@ function displayForecast(response) {
         <img src="images/humidity (1).png" class="forecastemoji" />
       </div>
       <div class="humidity-value">
-        65
+        ${day.temperature.humidity}
         <br />%
-      </div>
-    </li>
-    <li class="realFeel">
-      <div class="forecastemoji">
-        <img src="images/thermal.png" class="forecastemoji" />
-      </div>
-      <div class="precipitation-value">
-        0<br />%
       </div>
     </li>
   </ul>
