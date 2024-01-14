@@ -1,5 +1,5 @@
 function refreshWeather(response) {
-  console.log(response.data);
+  //console.log(response.data);
   let cityTemp = response.data.temperature.current;
   let cityTempdegrees = document.querySelector("#temp-degrees");
   cityTempdegrees.innerHTML = Math.round(cityTemp);
@@ -26,11 +26,15 @@ function refreshWeather(response) {
                       class="weatherDetails-emoji"/> `;
 
   //get the hours and date directly from the API as well to do that we nee to use the tag new Date() and multiply by 1000 see console log below
-  console.log(new Date(response.data.time * 1000));
+  //console.log(new Date(response.data.time * 1000));
   //based on this we can design and structure the date in the app
   let timeStamp = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   timeStamp.innerHTML = formatDate(date);
+
+  //add here the funtion to call the forecast, then we can delete on the bottom the give weather city. And inside of having the city we have the response.data.city
+  //This way if we call it here we know that the city is well-spelled
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -63,7 +67,7 @@ function formatDate(date) {
 
 function giveWeather(city) {
   let apiKey = `4c08634eb8b52t7acf769o96f5812f64`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
@@ -74,9 +78,15 @@ function findCity(event) {
   // cityName.innerHTML = input.value;
   giveWeather(input.value);
 }
+function getForecast(city) {
+  let apiKey = `4c08634eb8b52t7acf769o96f5812f64`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 //FORECAST JS
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let forecast = document.querySelector("#forecastDays");
 
   //need to add a loop so this html text shows up 5 times, calling the funtion 5 times does not work on its own. Create a new array
@@ -135,4 +145,3 @@ searchCityform.addEventListener("submit", findCity);
 
 //by the functionality added below we do not need to have the city and weather details in the html. everytime that is refreashed it will just show the details from the city that is below in brackets
 giveWeather("Basel");
-displayForecast();
