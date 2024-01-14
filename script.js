@@ -82,6 +82,7 @@ searchCityform.addEventListener("submit", findCity);
 giveWeather("Basel");
 
 //FORECAST JS
+let forecast = document.querySelector("#forecastDays");
 forecastDays.innerHTML = `<li class="forecastDays">
   <span class="days">Sun</span>
   <ul class="forecastDays">
@@ -92,7 +93,7 @@ forecastDays.innerHTML = `<li class="forecastDays">
     </li>
     <li class="wind">
       <div class="forecastemoji">
-        <img src="images\storm.png" class="forecastemoji" />
+        <img src="images/storm.png" class="forecastemoji" />
       </div>
       <div class="wind-value">
         2<br />
@@ -101,7 +102,7 @@ forecastDays.innerHTML = `<li class="forecastDays">
     </li>
     <li class="humidity">
       <div class="forecastemoji">
-        <img src="images\humidity (1).png" class="forecastemoji" />
+        <img src="images/humidity (1).png" class="forecastemoji" />
       </div>
       <div class="humidity-value">
         65
@@ -110,7 +111,7 @@ forecastDays.innerHTML = `<li class="forecastDays">
     </li>
     <li class="realFeel">
       <div class="forecastemoji">
-        <img src="images\thermal.png" class="forecastemoji" />
+        <img src="images/thermal.png" class="forecastemoji" />
       </div>
       <div class="precipitation-value">
         0<br />%
