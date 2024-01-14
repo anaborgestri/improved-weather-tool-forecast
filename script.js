@@ -80,3 +80,41 @@ searchCityform.addEventListener("submit", findCity);
 
 //by the functionality added below we do not need to have the city and weather details in the html. everytime that is refreashed it will just show the details from the city that is below in brackets
 giveWeather("Basel");
+
+//FORECAST JS
+forecastDays.innerHTML = `<li class="forecastDays">
+  <span class="days">Sun</span>
+  <ul class="forecastDays">
+    <li class="temperature-emoji">🌤️</li>
+    <li>
+      <span class="temperature-forecast-max">12</span>
+      <span class="temperature-forecast-min">9</span>
+    </li>
+    <li class="wind">
+      <div class="forecastemoji">
+        <img src="images\storm.png" class="forecastemoji" />
+      </div>
+      <div class="wind-value">
+        2<br />
+        km/h
+      </div>
+    </li>
+    <li class="humidity">
+      <div class="forecastemoji">
+        <img src="images\humidity (1).png" class="forecastemoji" />
+      </div>
+      <div class="humidity-value">
+        65
+        <br />%
+      </div>
+    </li>
+    <li class="realFeel">
+      <div class="forecastemoji">
+        <img src="images\thermal.png" class="forecastemoji" />
+      </div>
+      <div class="precipitation-value">
+        0<br />%
+      </div>
+    </li>
+  </ul>
+</li>`;
