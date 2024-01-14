@@ -1,5 +1,5 @@
 function refreshWeather(response) {
-  //console.log(response.data);
+  console.log(response.data);
   let cityTemp = response.data.temperature.current;
   let cityTempdegrees = document.querySelector("#temp-degrees");
   cityTempdegrees.innerHTML = Math.round(cityTemp);
@@ -84,28 +84,39 @@ function getForecast(city) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+//to format date for the forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 //FORECAST JS
 function displayForecast(response) {
   console.log(response);
   let forecast = document.querySelector("#forecastDays");
 
   //need to add a loop so this html text shows up 5 times, calling the funtion 5 times does not work on its own. Create a new array
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  //let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   //create a funtion to call it for each day of the created array
   //if we would stop here only the last day of the array would be called so we need to concatonate a string a massive string. SO we need to create a new variable that will be empty for now
   let forecastHtml = "";
   //then we will need to say that we want this variable to be played / called again and again. For that we add forecastHtml = forescastHtml + `teh html text that we want to inject` - see below
   // finally we need to create the final loop, we need to add in the end forecast.innerHTML = forecastHtml;
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<li class="forecastDays">
-  <span class="days">${day}</span>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `<li class="forecastDays">
+  <span class="days">${formatDay(day.time)}</span>
   <ul class="forecastDays">
-    <li class="temperature-emoji">🌤️</li>
+    <li class="temperature-emoji"><img src="${day.condition.icon_url}" /></li>
     <li>
-      <span class="temperature-forecast-max">12</span>
-      <span class="temperature-forecast-min">9</span>
+      <span class="temperature-forecast-max">${Math.round(
+        day.temperature.maximum
+      )}°</span>
+      <span class="temperature-forecast-min">${Math.round(
+        day.temperature.minimum
+      )}°</span>
     </li>
     <li class="wind">
       <div class="forecastemoji">
@@ -135,6 +146,7 @@ function displayForecast(response) {
     </li>
   </ul>
 </li>`;
+    }
   });
   //finally we need to create the final loop
   forecast.innerHTML = forecastHtml;
