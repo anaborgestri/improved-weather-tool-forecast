@@ -177,7 +177,6 @@ div.forecastWeekly {
   max-width: 480px;
   display: block;
   margin: 0 auto;
-  padding-left: 0px;
 }
 
 .temperature-emoji {
@@ -217,11 +216,17 @@ li {
   list-style: none;
   text-align: center;
 }
+li.forecastDays {
+  margin: 8px;
+}
 img.forecastemoji {
   width: 25px;
 }
 ul.forecastDays {
-  padding: 30px 5px 30px 5px;
+  padding: 3px;
+}
+ul#forecastDays {
+  padding-inline-start: 0px;
 }
 ul.weatherDetailsExtra {
   display: flex;
